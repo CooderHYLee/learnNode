@@ -7,7 +7,7 @@
  */
 const _ = require('lodash')
 
-var products=[];
+let products=[];
 products.push({name:"ZTE U880",price:899.8});
 products.push({name:"HuWei 荣耀8",price:1899.8});
 products.push({name:"iPhone 7 Plus 128G",price:5899.8});

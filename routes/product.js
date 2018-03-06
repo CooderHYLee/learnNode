@@ -6,18 +6,18 @@
  * <文件描述>
  */
 
-var express = require('express');
-var router = express.Router();
-var _= require('lodash');
+const express = require('express');
+const router = express.Router();
+const _= require('lodash');
 
-var products=[];
+let products=[];
 products.push({name:"ZTE U880",price:899.8});
 products.push({name:"HuWei 荣耀8",price:1899.8});
 products.push({name:"iPhone 7 Plus 128G",price:5899.8});
 
 /* 产品 */
 router.get('/', function(req, res, next) {
-    var str=JSON.stringify(products);
+    let str=JSON.stringify(products);
     //将product视图与指定的对象渲染后输出到客户端
     res.render('product', { title: '天狗商城', pdts:products,msg:str});
 });
@@ -33,7 +33,7 @@ router.get('/rest', function(req, res, next) {
 //});
 
 router.get('/edit/:index', function(req, res, next) {
-    var pdt=products[parseInt(req.params.index)];
+    let pdt=products[parseInt(req.params.index)];
     res.render('product', { title: '天狗商城', pdts:products,msg:"",obj:pdt});
 });
 
@@ -42,7 +42,7 @@ router.get('/:id',function(request,res,next){
 });
 
 router.post('/add',function(request,res,next){
-    var entity={name:request.body.name,price:request.body.price};
+    let entity={name:request.body.name,price:request.body.price};
     products.push(entity);
     //将product视图与指定的对象渲染后输出到客户端
     res.render('product', { title: '天狗商城', pdts:products,msg:"添加成功"});

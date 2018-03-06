@@ -9,14 +9,14 @@
 		<script>
 		    
 		    //对象
-			var rose={"name":"Rose","weight":"65"};
+			let rose={"name":"Rose","weight":"65"};
 			//序列化成字符串
-			var str=JSON.stringify(rose);
+			let str=JSON.stringify(rose);
 			alert(str);
 			
 			//将字符串转换成JavaScript对象
-			var markStr='{"name":"mark","weight":"188"}';
-			var mark=JSON.parse(markStr);
+			let markStr='{"name":"mark","weight":"188"}';
+			let mark=JSON.parse(markStr);
 			alert(mark.name+"，"+mark.weight);
 		</script>
 	</head>

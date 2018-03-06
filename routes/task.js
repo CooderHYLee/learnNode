@@ -5,12 +5,12 @@
  * Why & What is modified  <修改原因描述>
  * <文件描述>
  */
-var express = require('express');
-var router = express.Router();
-var _=require('lodash');
+const express = require('express');
+const router = express.Router();
+const _=require('lodash');
 
-var tasks=[{id:'1',name:'hello'},{id:'2',name:'world'}]; //simple data
-var id=3;
+let tasks=[{id:'1',name:'hello'},{id:'2',name:'world'}]; //simple data
+let id=3;
 
 /* 获得首页 */
 router.get('/', function(req, res, next) {
@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
 
 //create new
 router.post('/', function(req, res) {
-    var newTask=req.body;
+    let newTask=req.body;
     newTask.id=''+(id++);
     tasks.push(newTask);
     res.json(newTask);
@@ -32,14 +32,14 @@ router.post('/', function(req, res) {
 
 //get one
 router.get('/:id', function(req, res) {
-    var task=_.find(tasks,{id:req.params.id});
+    let task=_.find(tasks,{id:req.params.id});
     res.json(task);
 });
 
 //update one
 router.put('/:id', function(req, res) {
     _.remove(tasks,{id:req.params.id});
-    var newTask=req.body;
+    let newTask=req.body;
     newTask.id=req.params.id;
     tasks.push(newTask);
     res.json(newTask);
